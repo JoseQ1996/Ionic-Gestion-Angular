@@ -1,0 +1,5 @@
+[
+    {"icon":"person-add-outline",
+      "name":"Registro Cliente",
+    "redirectTo":"/web/register-client"  }
+]

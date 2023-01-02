@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="registerForm" (ngSubmit)="guardarCliente()">
+  <ion-item>
+    <ion-label>Identificacion</ion-label>
+    <ion-select [interfaceOptions]="customAlertOptions" interface="alert" formControlName="tipoIdentificacion" placeholder="Seleccione Uno">
+      <ion-select-option value="RUC">RUC</ion-select-option>
+      <ion-select-option value="CEDULA">CEDULA</ion-select-option>
+      <ion-select-option value="PASAPORTE">PASAPORTE</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item fill="outline">
+    <ion-label position="floating">Numero de Identificacion</ion-label>
+    <ion-input formControlName="identificacionNumero" placeholder="Enter text"></ion-input>
+  </ion-item>
+  <ion-item fill="outline">
+    <ion-label position="floating">Nombre Cliente</ion-label>
+    <ion-input formControlName="nombre" placeholder="Enter text"></ion-input>
+  </ion-item>
+  <ion-item fill="outline">
+    <ion-label position="floating">Direccion</ion-label>
+    <ion-input formControlName="direccion" placeholder="Enter text"></ion-input>
+  </ion-item>
+  <ion-item fill="outline">
+    <ion-label position="floating">Telefono</ion-label>
+    <ion-input formControlName="telefono" placeholder="Enter text"></ion-input>
+  </ion-item>
+  <ion-item fill="outline">
+    <ion-label position="floating">Correo Electronico</ion-label>
+    <ion-input formControlName="correoElectronico" placeholder="Enter text"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="danger" expand="block">Registrar</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+</ion-content>
