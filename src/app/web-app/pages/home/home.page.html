@@ -5,8 +5,34 @@
           <ion-menu-button color="primary"
           menu="primerMenu"></ion-menu-button>
       </ion-buttons>
-      <ion-title>BIENVENIDO</ion-title>
+      <ion-title>PRINCIPAL</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content [fullscreen]="true">
+
+
+    <ion-slides [options]="option" class="ion-margin-top">
+      
+      <ion-slide>
+        <ion-card>
+          <img src="assets/images/03.jpg">
+        </ion-card>
+      </ion-slide>
+  
+      <ion-slide>
+        <ion-card>
+          <img src="assets/images/02.jpg">
+        </ion-card>
+      </ion-slide>
+  
+      <ion-slide>
+        <ion-card>
+          <img src="assets/images/01.jpg">
+        </ion-card>
+      </ion-slide>
+  
+    </ion-slides>
+  
+  </ion-content>
 
 

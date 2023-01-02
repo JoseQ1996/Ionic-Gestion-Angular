@@ -17,6 +17,14 @@ const routes: Routes = [
         loadChildren: () => import('../web-app/pages/register-client/register-client.module').then(m => m.RegisterClientPageModule)
       },
     ]
+  },
+  {
+    path: 'clientes',
+    loadChildren: () => import('./pages/clientes/clientes.module').then( m => m.ClientesPageModule)
+  },
+  {
+    path: 'productos',
+    loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
   }
 ];
 

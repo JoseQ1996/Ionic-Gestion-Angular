@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button text="" defaultHref="/web/home"></ion-back-button>
+  </ion-buttons>
+    <ion-title>Clientes</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-label>Pokémon Yellow</ion-label>
+      <ion-button color="warning">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="success" routerLink="/web/register-client">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

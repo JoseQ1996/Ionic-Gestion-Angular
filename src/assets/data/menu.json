@@ -1,5 +1,8 @@
 [
-    {"icon":"person-add-outline",
-      "name":"Registro Cliente",
-    "redirectTo":"/web/register-client"  }
+    {"icon":"people-outline",
+      "name":"Clientes",
+    "redirectTo":"/web/clientes"  },
+    {"icon":"medkit-outline",
+      "name":"Productos",
+    "redirectTo":"/web/productos"  }
 ]
