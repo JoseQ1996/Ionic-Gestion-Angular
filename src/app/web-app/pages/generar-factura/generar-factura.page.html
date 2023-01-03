@@ -40,7 +40,11 @@
   </div>
   <div class="p-r">
     <p><b>Subtotal: </b>{{subtotal}}</p>
-    <p><b>IVA: </b>{{iva}}</p>
+    <p><b>IVA: </b>{{iva.toFixed(2)}}</p>
     <p><b>Total: </b>{{total.toFixed(2)}}</p>
+    <ion-button (click)="facturar()">
+    Facturar
+    </ion-button>
   </div>
+  
 </ion-content>
