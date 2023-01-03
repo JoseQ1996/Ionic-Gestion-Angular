@@ -1,0 +1,43 @@
+ion-grid {
+    --ion-grid-column-padding: 7px;
+    border-collapse: collapse;
+    border-style: hidden;
+    font-size: 12px;
+
+    .reports-table {
+        overflow-x: auto;
+    }
+
+    ion-row:first-child {
+        background-color: #428cff;
+        font-weight: bold;
+        font-size: 7px;
+    }
+
+    ion-col {
+        border: 1px solid black;
+        border-bottom: 0;
+        border-right: 0;
+    }
+
+    ion-col:last-child {
+        border-right: 1px solid black;
+    }
+
+    ion-row:last-child {
+        border-bottom: 1px solid black;
+        
+    }
+    .center-text {
+        text-align: center;
+     }
+}
+
+.p-r{
+    padding-left: 20px;
+}
+
+.input{
+    padding-left: 20px;
+    padding-right: 20px;
+}

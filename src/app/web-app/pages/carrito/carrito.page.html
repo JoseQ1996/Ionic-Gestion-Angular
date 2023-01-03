@@ -26,7 +26,7 @@
         <ion-col>{{d.cantidad}}</ion-col>
         <ion-col>{{d.precioUnitario}}</ion-col>
         <ion-col>{{d.total}}</ion-col>
-        <ion-button color="danger">
+        <ion-button color="danger" (click)="eliminar(d.servicioId!)">
           <ion-icon name="trash"></ion-icon>
         </ion-button>
       </ion-row>

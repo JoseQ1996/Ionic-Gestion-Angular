@@ -1,19 +1,46 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/web/carrito"></ion-back-button>
+    </ion-buttons>
     <ion-title>FACTURA</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-title>Factura</ion-title>
-<ion-item fill="outline">
-  <ion-label position="floating">Numero de Identificacion</ion-label>
-  <ion-input formControlName="identificacionNumero" placeholder="Ingrese Numero de Identificacion Cliente"></ion-input>
-</ion-item>
-<p><b>Nombre: </b></p>
-<ion-label id="nombreU"></ion-label>
-<p><b>Telefono: </b></p>
-<ion-label id="telefonoU"></ion-label>
-<p><b>Direccion: </b></p>
-<ion-label id="direccionU"></ion-label>
+  <form [formGroup]="registerForm" (ngSubmit)="facturar()">
+    <br>
+    
+    <ion-item class="input" fill="outline">
+      <ion-label position="floating">Numero de Identificacion</ion-label>
+      <ion-input formControlName="identificacionNumero"
+        placeholder="Ingrese Numero de Identificacion Cliente"></ion-input>
+    </ion-item>
+    <div class="p-r" *ngIf="cliente">
+      <p><b>Nombre: </b>{{cliente.nombre}}</p>
+      <p><b>Telefono: </b>{{cliente.telefono}}</p>
+      <p><b>Direccion: </b>{{cliente.direccion}}</p>
+    </div>
+  </form>
+  <div class="reports-table">
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Servicio</ion-col>
+        <ion-col>Cantidad</ion-col>
+        <ion-col>Precio Unitario</ion-col>
+        <ion-col>Total</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let d of detalles">
+        <ion-col>{{d.servicioId}}</ion-col>
+        <ion-col>{{d.cantidad}}</ion-col>
+        <ion-col>{{d.precioUnitario}}</ion-col>
+        <ion-col>{{d.total}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="p-r">
+    <p><b>Subtotal: </b>{{subtotal}}</p>
+    <p><b>IVA: </b>{{iva}}</p>
+    <p><b>Total: </b>{{total.toFixed(2)}}</p>
+  </div>
 </ion-content>
