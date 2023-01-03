@@ -8,3 +8,12 @@ export interface Componente{
     name:string;
     redirectTo:string;
 }
+export class Cliente{
+    id?:number;
+    tipoIdentificacion:string='';
+    identificacionNumero: string='';
+    nombre: string='';
+    direccion: string='';
+    telefono: string='';
+    correoElectronico:string='';
+}

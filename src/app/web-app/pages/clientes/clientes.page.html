@@ -1,26 +1,32 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-    <ion-back-button text="" defaultHref="/web/home"></ion-back-button>
-  </ion-buttons>
+      <ion-back-button text="" defaultHref="/web/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Clientes</ion-title>
-    
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-label>Pokémon Yellow</ion-label>
-      <ion-button color="warning">
-        <ion-icon name="create-outline"></ion-icon>
-      </ion-button>
-      <ion-button color="danger">
-        <ion-icon name="trash"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
-
+<ion-content >  
+      <ion-list *ngFor="let c of clientes| async">
+        <ion-item >
+          <ion-thumbnail class="ion-margin-end">
+            <ion-img src="https://e7.pngegg.com/pngimages/177/551/png-clipart-user-interface-design-computer-icons-default-stephen-salazar-graphy-user-interface-design-computer-wallpaper.png"></ion-img>
+          </ion-thumbnail>
+          <ion-label class="ion-text-wrap">{{c.nombre}}</ion-label>
+          
+          <ion-button color="primary" (click)="getCliente(c)">
+            <ion-icon name="eye-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="warning">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" (click)="eliminarCliente(c.id)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button color="success" routerLink="/web/register-client">
       <ion-icon name="person-add-outline"></ion-icon>
