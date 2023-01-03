@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ProductoService } from 'src/app/api/producto.service';
 import { UserService } from 'src/app/api/user.service';
@@ -14,7 +15,8 @@ export class ProductosPage implements OnInit {
   productos:Observable<Producto[]> | undefined ;
   user:any;
   constructor(private productoService:ProductoService,
-              private userService:UserService) {this.user=this.userService.obtenerSesion().body }
+              private userService:UserService,
+              private alertController: AlertController) {this.user=this.userService.obtenerSesion().body }
 
   ngOnInit() {
     const id=this.user.id
@@ -58,4 +60,49 @@ export class ProductosPage implements OnInit {
       }
     });
   }
+  async agregarCarrito(producto:Producto){
+    const alert = await this.alertController.create({
+      header: 'Agregar a Carrito',
+      subHeader: producto.descripcion,
+
+      inputs: [
+        
+        {
+          name: 'precio',
+          type: 'number',
+          placeholder: producto.precioUnitario.toString(),
+          value:producto.precioUnitario,
+          
+        },
+        {
+          name: 'cantidad',
+          type: 'number',
+          placeholder: 'cantidad',
+          min: 1,
+          max: 100,
+        },
+      ],
+      buttons: [
+        {
+        text: 'Agregar',
+        
+        handler: data => {
+          const total=data.precio*data.cantidad
+          console.log(data.precio,data.cantidad,total,producto.id);
+        }
+      },
+      {
+        text: 'Cancelar',
+        role: 'cancelar',
+        handler: data => {
+          console.log('Cancelado');
+        }
+      },
+      ],
+    });
+
+    await alert.present();
+  }
 }
+    
+
