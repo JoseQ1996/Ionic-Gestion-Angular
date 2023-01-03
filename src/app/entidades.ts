@@ -30,3 +30,13 @@ export class Detalle{
     total :number=0.00;
     servicioId?:number;
 }
+export class Factura{
+    fechaDeEmision: Date=new Date();   
+    subtotal :number=0.00;
+    impuesto : number=0.00;
+    total : number=0.00;   
+    clienteId : number=0;
+    usuarioId : number=0;    
+    detalles: Detalle[]=[];
+        
+}
