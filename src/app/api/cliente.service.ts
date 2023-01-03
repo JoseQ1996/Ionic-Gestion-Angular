@@ -28,4 +28,8 @@ export class ClienteService {
     let finalUrl = this.endpoint + 'delete'
     return this.httpClient.get(`${finalUrl}/${id}`);
   }
+  getClienteByCedula(cedula:string):Observable<Cliente>{
+    let finalUrl = this.endpoint + 'findByCedula'
+    return this.httpClient.get<Cliente>(`${finalUrl}/${cedula}`);
+  }
 }

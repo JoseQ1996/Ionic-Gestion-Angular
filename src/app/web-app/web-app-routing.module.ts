@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'carrito',
     loadChildren: () => import('./pages/carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
+  {
+    path: 'generar-factura',
+    loadChildren: () => import('./pages/generar-factura/generar-factura.module').then( m => m.GenerarFacturaPageModule)
   }
 ];
 

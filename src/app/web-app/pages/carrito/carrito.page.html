@@ -7,20 +7,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list *ngFor="let d of detalles">
-    <ion-item >
-      <ion-thumbnail class="ion-margin-end">
-        <ion-img src="https://www.hostinger.es/tutoriales/wp-content/uploads/sites/7/2022/05/descripcion-de-un-producto.png"></ion-img>
-      </ion-thumbnail>
-      <ion-label class="ion-text-wrap">{{d.cantidad}}</ion-label>
-      <ion-label class="ion-text-wrap">{{d.precioUnitario}}</ion-label>
-      <ion-label class="ion-text-wrap">{{d.total}}</ion-label>
-      <ion-label class="ion-text-wrap">{{d.servicioId}}</ion-label>
-    
-      <ion-button color="danger" >
-        <ion-icon name="trash"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
+<ion-content class="ion-margin">
+  <div class="center-text">
+    <p>Lista de Productos</p>
+  </div>
+  <div class="reports-table">
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Servicio</ion-col>
+        <ion-col>Cantidad</ion-col>
+        <ion-col>Precio Unitario</ion-col>
+        <ion-col>Total</ion-col>
+        <ion-col>Accion</ion-col>
+
+      </ion-row>
+      <ion-row *ngFor="let d of detalles">
+        <ion-col>{{d.servicioId}}</ion-col>
+        <ion-col>{{d.cantidad}}</ion-col>
+        <ion-col>{{d.precioUnitario}}</ion-col>
+        <ion-col>{{d.total}}</ion-col>
+        <ion-button color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="success" routerLink="/web/generar-factura">
+      <ion-icon name="receipt-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
