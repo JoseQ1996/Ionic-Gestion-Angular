@@ -38,4 +38,7 @@ export class UserService {
     }
     return null;
   }
+  public cerrarSesion() {
+    localStorage.clear();
+  }
 }

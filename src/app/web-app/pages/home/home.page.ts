@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/api/user.service';
 import { Componente } from '../../../entidades';
@@ -10,22 +11,27 @@ import { Componente } from '../../../entidades';
 })
 export class HomePage {
   usuario: any;
-  constructor(private userService:UserService) {
-    this.usuario=this.userService.obtenerSesion().body;
+  constructor(private userService: UserService,
+    private router: Router) {
+    this.usuario = this.userService.obtenerSesion().body;
   }
   option = {
     slidesPerView: 1,
     centeredSlides: true,
     loop: true,
     spaceBetween: 5,
-    autoplay:true,
+    autoplay: true,
   }
-  ngOnInit(){
+  ngOnInit() {
     // email: this.usuario['username']
-    console.log("Logueado",this.usuario)
-    
-    
+    console.log("Logueado", this.usuario)
+
+
   }
-  
+  cerrarSesion() {
+    this.userService.cerrarSesion()
+    this.router.navigate(['/auth/login'])
+  }
+
 
 }

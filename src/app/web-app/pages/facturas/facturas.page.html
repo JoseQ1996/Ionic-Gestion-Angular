@@ -5,9 +5,31 @@
     </ion-buttons>
     <ion-title>FACTURAS</ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+  <ion-tabs>
+    <ion-tab-bar  slot="top">
+      <ion-tab-button color="primary"(click)="todas()">
+        <ion-icon name="receipt-outline"></ion-icon>
+        <ion-label>Facturas</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button color="primary" (click)="emitidas()">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <ion-label>Emitidas</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button color="primary"(click)="anuladas()">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+        <ion-label>Anuladas</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <br>
+  <br>
+  <br>
   <ion-card *ngFor="let f of facturas| async;let i = index">
   <ion-card-header>
     <ion-card-title><b>Factura N: </b>{{i+1}}</ion-card-title>
@@ -27,22 +49,5 @@
   </ion-card-content>
 </ion-card>
 </ion-content>
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button color="primary"(click)="todas()">
-      <ion-icon name="receipt-outline"></ion-icon>
-      <ion-label>Facturas</ion-label>
-    </ion-tab-button>
 
-    <ion-tab-button color="primary" (click)="emitidas()">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <ion-label>Emitidas</ion-label>
-    </ion-tab-button>
 
-    <ion-tab-button color="primary"(click)="anuladas()">
-      <ion-icon name="alert-circle-outline"></ion-icon>
-      <ion-label>Anuladas</ion-label>
-    </ion-tab-button>
-
-  </ion-tab-bar>
-</ion-tabs>
