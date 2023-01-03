@@ -31,6 +31,7 @@ export class Detalle{
     servicioId?:number;
 }
 export class Factura{
+    id?:number;
     fechaDeEmision: Date=new Date();   
     subtotal :number=0.00;
     impuesto : number=0.00;
@@ -38,5 +39,6 @@ export class Factura{
     clienteId : number=0;
     usuarioId : number=0;    
     detalles: Detalle[]=[];
+    estadoFactura?: string;
         
 }

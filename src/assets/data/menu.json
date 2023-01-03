@@ -4,5 +4,8 @@
     "redirectTo":"/web/clientes"  },
     {"icon":"medkit-outline",
       "name":"Productos",
-    "redirectTo":"/web/productos"  }
+    "redirectTo":"/web/productos"  },
+    {"icon":"receipt-outline",
+      "name":"Facturas",
+    "redirectTo":"/web/facturas"  }
 ]

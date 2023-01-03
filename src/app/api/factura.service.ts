@@ -22,4 +22,16 @@ export class FacturaService {
     let finalUrl = this.endpoint + 'findAll'
     return this.httpClient.get<Factura[]>(`${finalUrl}/${id}`);   
   } 
+  listarFacturasEmitidas(id:number):Observable<Factura[]>{
+    let finalUrl = this.endpoint + 'findAll/issued'
+    return this.httpClient.get<Factura[]>(`${finalUrl}/${id}`);   
+  } 
+  listarFacturasAnuladas(id:number):Observable<Factura[]>{
+    let finalUrl = this.endpoint + 'findAll/cancel'
+    return this.httpClient.get<Factura[]>(`${finalUrl}/${id}`);   
+  } 
+  anularFactura(id:number){
+    let finalUrl = this.endpoint + 'cancel'
+    return this.httpClient.get<Factura>(`${finalUrl}/${id}`)
+  }
 }
