@@ -1,4 +1,3 @@
-
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start" >
@@ -6,6 +5,14 @@
           menu="primerMenu"></ion-menu-button>
       </ion-buttons>
       <ion-title>PRINCIPAL</ion-title>
+      <ion-buttons slot="end">
+        <ion-button >
+          <ion-icon color="primary" slot="icon-only" name="cart"></ion-icon>
+        </ion-button>
+        <ion-button >
+          <ion-icon color="primary" slot="icon-only" name="log-out-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
   
@@ -34,7 +41,7 @@
       </ion-slide>
   
     </ion-slides>
-  
+    <ion-label *ngIf="usuario" id="usuario">Usuario logueado: {{usuario.username}}</ion-label>
   </ion-content>
 
 

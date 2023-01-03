@@ -32,6 +32,8 @@ export class LoginPage implements OnInit {
       (res:any)=>{
         console.log("LOGIN",res)
         this.mostrarMensaje("El usuario se a logueado correctamente")
+        const user = JSON.stringify(res);
+        localStorage.setItem('usuario', user);
         this.userLoginForm.reset()
         this.router.navigate(['/web/home'])
         

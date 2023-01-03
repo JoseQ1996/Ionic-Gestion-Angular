@@ -1,4 +1,5 @@
 export class Usuario{
+    id?:number;
     username:string='';
     password:string='';
     confirmPassword?:string;
@@ -16,4 +17,10 @@ export class Cliente{
     direccion: string='';
     telefono: string='';
     correoElectronico:string='';
+}
+export class Producto{
+    id?:number;
+    descripcion: string='';
+    precioUnitario: number=0.00;
+    usuarioId:number=0;
 }

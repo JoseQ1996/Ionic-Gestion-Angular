@@ -8,20 +8,34 @@
 </ion-header>
 
 <ion-content>
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-label>Pokémon Yellow</ion-label>
-      <ion-button color="warning">
-        <ion-icon name="create-outline"></ion-icon>
-      </ion-button>
-      <ion-button color="danger">
-        <ion-icon name="trash"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
+
+      
+      
+    
+  <ion-card *ngFor="let p of productos| async">
+    <div class="center">  
+  <img alt="Producto" src="https://www.hostinger.es/tutoriales/wp-content/uploads/sites/7/2022/05/descripcion-de-un-producto.png"[width]="400" height="100"/>
+    </div>
+  <ion-card-header>
+    <ion-card-title>{{p.descripcion}}</ion-card-title>
+    <ion-card-subtitle>{{p.precioUnitario}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-button color="warning">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button>
+    <ion-button color="danger" (click)="eliminarProducto(p.id)">
+      <ion-icon name="trash"></ion-icon>
+    </ion-button>
+    <ion-button color="success" >
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+  </ion-card-content>
+</ion-card>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button color="success" routerLink="/web/register-client">
+    <ion-fab-button color="success" routerLink="/web/register-product">
       <ion-icon name="bag-add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+
+import { UserService } from 'src/app/api/user.service';
 import { Componente } from '../../../entidades';
 
 @Component({
@@ -8,8 +9,10 @@ import { Componente } from '../../../entidades';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  
-  constructor() {}
+  usuario: any;
+  constructor(private userService:UserService) {
+    this.usuario=this.userService.obtenerSesion().body;
+  }
   option = {
     slidesPerView: 1,
     centeredSlides: true,
@@ -17,5 +20,12 @@ export class HomePage {
     spaceBetween: 5,
     autoplay:true,
   }
+  ngOnInit(){
+    // email: this.usuario['username']
+    console.log("Logueado",this.usuario)
+    
+    
+  }
+  
 
 }

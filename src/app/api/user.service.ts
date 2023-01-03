@@ -30,4 +30,12 @@ export class UserService {
   getMenuOpts(){
     return this.httpClient.get<Componente[]>('/assets/data/menu.json')
   }
+  public obtenerSesion() {
+    const data = localStorage.getItem('usuario');
+    if (data) {
+      const usuario = JSON.parse(data);
+      return usuario;
+    }
+    return null;
+  }
 }
