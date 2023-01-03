@@ -24,7 +24,7 @@ export class GenerarFacturaPage implements OnInit {
   total: number = 0
   subtotal: number = 0
   iva: number = 0
-  fecha: any = Date.now()
+  fecha: any = new Date()
   user:any
   constructor(private fb: FormBuilder,
     private clienteService: ClienteService,
@@ -73,7 +73,7 @@ export class GenerarFacturaPage implements OnInit {
         console.log("Factura",res)
         this.mostrarMensaje("La Factura fue registrada")
         this.registerForm.reset()
-        //localStorage.clear
+        //localStorage.removeItem('detalles')
         this.router.navigate(['/web/home'])
         
       },
