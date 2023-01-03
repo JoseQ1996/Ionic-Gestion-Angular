@@ -24,3 +24,9 @@ export class Producto{
     precioUnitario: number=0.00;
     usuarioId:number=0;
 }
+export class Detalle{
+    cantidad : number=0;
+    precioUnitario:number=0.00;
+    total :number=0.00;
+    servicioId?:number;
+}

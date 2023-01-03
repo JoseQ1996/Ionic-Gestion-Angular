@@ -3,7 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ProductoService } from 'src/app/api/producto.service';
 import { UserService } from 'src/app/api/user.service';
-import { Producto } from 'src/app/entidades';
+import { Detalle, Producto } from 'src/app/entidades';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -88,7 +88,16 @@ export class ProductosPage implements OnInit {
         
         handler: data => {
           const total=data.precio*data.cantidad
-          console.log(data.precio,data.cantidad,total,producto.id);
+          const id=producto.id
+          console.log(data.precio,data.cantidad,total,id);
+          const detalle:Detalle={
+            cantidad:data.cantidad,
+            precioUnitario:data.precio,
+            total:total,
+            servicioId:id,
+
+          }
+          this.productoService.addCarrito(detalle);
         }
       },
       {
