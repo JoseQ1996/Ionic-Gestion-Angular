@@ -32,6 +32,7 @@ export class HomePage {
   cerrarSesion() {
     this.userService.cerrarSesion()
     this.router.navigate(['/auth/login'])
+    this.usuario=[]
     
   }
 
