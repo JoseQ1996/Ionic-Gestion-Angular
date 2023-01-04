@@ -73,7 +73,7 @@ export class GenerarFacturaPage implements OnInit {
         console.log("Factura",res)
         this.mostrarMensaje("La Factura fue registrada")
         this.registerForm.reset()
-        //localStorage.removeItem('detalles')
+        localStorage.removeItem('detalles')
         this.router.navigate(['/web/home'])
         
       },

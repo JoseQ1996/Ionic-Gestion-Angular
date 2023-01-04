@@ -39,6 +39,7 @@ export class ProductoService {
     var storeList=localStorage.getItem('detalles')
     if(storeList==null){
       console.log("Carrito Vacio")
+      this.detalles=[]
     }
     else{
       this.detalles=JSON.parse(storeList)

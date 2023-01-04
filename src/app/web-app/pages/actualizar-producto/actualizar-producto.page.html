@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/web/productos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Actualizar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+  <div class="input">
+  <form [formGroup]="registerForm" (ngSubmit)="actualizarProducto()">
+     
+    <ion-item fill="outline">
+      <ion-label position="floating">Descripcion</ion-label>
+      <ion-input formControlName="descripcion" placeholder="Descripcion Producto"></ion-input>
+    </ion-item>
+    <ion-item fill="outline">
+      <ion-label position="floating">Precio Unitario</ion-label>
+      <ion-input formControlName="precioUnitario" type="number" placeholder="Precio del producto"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Agregar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</div>
+  </ion-content>

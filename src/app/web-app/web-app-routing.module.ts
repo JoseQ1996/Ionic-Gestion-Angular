@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'actualizar-cliente',
     loadChildren: () => import('./pages/actualizar-cliente/actualizar-cliente.module').then( m => m.ActualizarClientePageModule)
+  },
+  {
+    path: 'actualizar-producto',
+    loadChildren: () => import('./pages/actualizar-producto/actualizar-producto.module').then( m => m.ActualizarProductoPageModule)
   }
 ];
 

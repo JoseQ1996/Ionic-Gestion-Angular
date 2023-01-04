@@ -32,4 +32,8 @@ export class ClienteService {
     let finalUrl = this.endpoint + 'findByCedula'
     return this.httpClient.get<Cliente>(`${finalUrl}/${cedula}`);
   }
+  actualizarCliente(cliente:Cliente){
+    let finalUrl = this.endpoint + 'update'
+    return this.httpClient.post<Cliente>(finalUrl, cliente, this.httpsOptions)
+  }
 }
