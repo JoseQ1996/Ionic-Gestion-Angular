@@ -42,3 +42,20 @@ export class Factura{
     estadoFactura?: string;
         
 }
+export interface FacturaDetalle {
+    id: number;
+    fechaDeEmision: Date;
+    subtotal: number;
+    impuesto: number;
+    total: number;
+    cliente: Cliente;
+    detalles: DetalleFac[];
+    usuario: Usuario;
+    estadoFactura: string;
+  }
+  export interface DetalleFac{
+    cantidad : number;
+    precioUnitario:number;
+    total :number;
+    servicio :Producto;
+}

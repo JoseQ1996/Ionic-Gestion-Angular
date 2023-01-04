@@ -37,11 +37,15 @@
   </ion-card-header>
 
   <ion-card-content>
+    <p><b>Cliente: </b>{{f.cliente.nombre}}</p>
     <p><b>Subtotal: </b>{{f.subtotal}}</p>
     <p><b>Impuesto: </b>{{f.impuesto}}</p>
     <p><b>Total: </b>{{f.total}}</p>
     <p><b>Estado: </b>{{f.estadoFactura}}</p>
     <div class="p-r">
+      <ion-button color="primary" (click)="mostrarDetalles(f)">
+        <ion-icon name="eye-outline"></ion-icon>
+      </ion-button>
     <ion-button color="danger" *ngIf="f.estadoFactura === 'EMITIDA'"(click)="anularFactura(f.id)">
       <ion-icon name="alert-circle-outline"></ion-icon>
     </ion-button>

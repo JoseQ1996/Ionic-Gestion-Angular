@@ -2,7 +2,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Factura } from '../entidades';
+import { Factura, FacturaDetalle } from '../entidades';
 
 @Injectable({
   providedIn: 'root'
@@ -18,17 +18,17 @@ export class FacturaService {
     let finalUrl = this.endpoint + 'create'
     return this.httpClient.post<Factura>(finalUrl, factura, this.httpsOptions)
   }
-  listarFacturas(id:number):Observable<Factura[]>{
+  listarFacturas(id:number):Observable<FacturaDetalle[]>{
     let finalUrl = this.endpoint + 'findAll'
-    return this.httpClient.get<Factura[]>(`${finalUrl}/${id}`);   
+    return this.httpClient.get<FacturaDetalle[]>(`${finalUrl}/${id}`);   
   } 
-  listarFacturasEmitidas(id:number):Observable<Factura[]>{
+  listarFacturasEmitidas(id:number):Observable<FacturaDetalle[]>{
     let finalUrl = this.endpoint + 'findAll/issued'
-    return this.httpClient.get<Factura[]>(`${finalUrl}/${id}`);   
+    return this.httpClient.get<FacturaDetalle[]>(`${finalUrl}/${id}`);   
   } 
-  listarFacturasAnuladas(id:number):Observable<Factura[]>{
+  listarFacturasAnuladas(id:number):Observable<FacturaDetalle[]>{
     let finalUrl = this.endpoint + 'findAll/cancel'
-    return this.httpClient.get<Factura[]>(`${finalUrl}/${id}`);   
+    return this.httpClient.get<FacturaDetalle[]>(`${finalUrl}/${id}`);   
   } 
   anularFactura(id:number){
     let finalUrl = this.endpoint + 'cancel'
