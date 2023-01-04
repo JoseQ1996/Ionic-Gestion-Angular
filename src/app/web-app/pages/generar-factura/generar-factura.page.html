@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="background">
   <form [formGroup]="registerForm" (ngSubmit)="facturar()">
     <br>
     
@@ -38,11 +38,11 @@
       </ion-row>
     </ion-grid>
   </div>
-  <div class="p-r">
-    <p><b>Subtotal: </b>{{subtotal}}</p>
+  <div class="p-r-1">
+    <p><b>Subtotal: </b>{{subtotal.toFixed(2)}}</p>
     <p><b>IVA: </b>{{iva.toFixed(2)}}</p>
     <p><b>Total: </b>{{total.toFixed(2)}}</p>
-    <ion-button (click)="facturar()">
+    <ion-button color="success"(click)="facturar()">
     Facturar
     </ion-button>
   </div>

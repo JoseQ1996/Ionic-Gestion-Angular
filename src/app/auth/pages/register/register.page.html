@@ -1,10 +1,14 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/auth/login"></ion-back-button>
+    </ion-buttons>
     <ion-title>REGISTRO</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="background">
+  <div class="input">
   <form [formGroup]="userRegisterForm" (ngSubmit)="register()">
     <ion-item lines="full">    
       <ion-label position="floating">
@@ -32,4 +36,5 @@
       </ion-col>
     </ion-row>
   </form>
+</div>
 </ion-content>

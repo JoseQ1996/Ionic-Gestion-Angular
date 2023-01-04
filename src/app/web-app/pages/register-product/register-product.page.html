@@ -7,7 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="background">
+  <div class="input">
   <form [formGroup]="registerForm" (ngSubmit)="guardarProducto()">
      
     <ion-item fill="outline">
@@ -24,4 +25,5 @@
       </ion-col>
     </ion-row>
   </form>
+</div>
   </ion-content>

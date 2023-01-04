@@ -4,7 +4,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="background">
+  <div class="input">
   <form [formGroup]="userLoginForm" (ngSubmit)="login()">
     <ion-item lines="full">
       <ion-label position="floating">
@@ -22,6 +23,7 @@
         <ion-button type="submit" color="danger" expand="block">Entrar</ion-button>
       </ion-col>
     </ion-row>
+    
     <ion-row color="primary" justify-content-center>
       <ion-col size="12" class="ion-text-center">
         <div text-center>
@@ -31,5 +33,7 @@
         <ion-label [routerLink]="['/auth/register']" expand="block" color="danger">Registrar</ion-label>
       </ion-col>
     </ion-row>
+  
   </form>
+</div>
 </ion-content>

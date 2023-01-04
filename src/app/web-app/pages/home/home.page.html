@@ -16,9 +16,8 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content [fullscreen]="true">
-    <ion-title>GESTION EMPRESA</ion-title>
-
+  <ion-content [fullscreen]="true" padding class="background">
+    
     <ion-slides [options]="option" class="ion-margin-top">
       
       <ion-slide>
@@ -41,7 +40,13 @@
       </ion-slide>
   
     </ion-slides>
-    <ion-label *ngIf="usuario" id="usuario">Usuario logueado: {{usuario.username}}</ion-label>
+    <div class="centrar">
+      <b>BIENVENIDO</b>
+      </div>  
+      <br>
+      <div class="justificar">
+    <ion-label *ngIf="usuario" id="usuario"><b>Usuario: </b> {{usuario.username}}</ion-label>
+  </div>
   </ion-content>
 
 

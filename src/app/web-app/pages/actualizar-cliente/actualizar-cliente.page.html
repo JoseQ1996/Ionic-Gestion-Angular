@@ -3,13 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button text="" defaultHref="/web/clientes"></ion-back-button>
     </ion-buttons>
-    <ion-title>Registro de Clientes</ion-title>
+    <ion-title>Actualizar Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="background">
-  <div class="input">
-<form [formGroup]="registerForm" (ngSubmit)="guardarCliente()">
+<form [formGroup]="registerForm" (ngSubmit)="actualizarCliente()">
   <ion-item>
     <ion-label>Identificacion</ion-label>
     <ion-select [interfaceOptions]="customAlertOptions" interface="alert" formControlName="tipoIdentificacion" placeholder="Seleccione Uno">
@@ -37,12 +36,10 @@
     <ion-label position="floating">Correo Electronico</ion-label>
     <ion-input formControlName="correoElectronico" placeholder="Correo Electronico"></ion-input>
   </ion-item>
-  <br>
   <ion-row>
     <ion-col>
-      <ion-button type="submit" color="danger" expand="block">Registrar</ion-button>
+      <ion-button type="submit" color="danger" expand="block">Actualizar</ion-button>
     </ion-col>
   </ion-row>
 </form>
-</div>
 </ion-content>
