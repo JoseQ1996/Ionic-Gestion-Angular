@@ -19,7 +19,7 @@
           <ion-button color="primary" (click)="getCliente(c)">
             <ion-icon name="eye-outline"></ion-icon>
           </ion-button>
-          <ion-button color="warning">
+          <ion-button color="warning" [routerLink]="['/web/actualizar-cliente', c.identificacionNumero]">
             <ion-icon name="create-outline"></ion-icon>
           </ion-button>
           <ion-button color="danger" (click)="eliminarCliente(c.id)">

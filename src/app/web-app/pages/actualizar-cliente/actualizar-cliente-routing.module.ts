@@ -5,7 +5,7 @@ import { ActualizarClientePage } from './actualizar-cliente.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':cedula',
     component: ActualizarClientePage
   }
 ];

@@ -13,7 +13,7 @@ export class HomePage {
   usuario: any;
   constructor(private userService: UserService,
     private router: Router) {
-    this.usuario = this.userService.obtenerSesion().body;
+    
   }
   option = {
     slidesPerView: 1,
@@ -24,6 +24,7 @@ export class HomePage {
   }
   ngOnInit() {
     // email: this.usuario['username']
+    this.usuario = this.userService.obtenerSesion().body;
     console.log("Logueado", this.usuario)
 
 
@@ -31,6 +32,7 @@ export class HomePage {
   cerrarSesion() {
     this.userService.cerrarSesion()
     this.router.navigate(['/auth/login'])
+    
   }
 
 

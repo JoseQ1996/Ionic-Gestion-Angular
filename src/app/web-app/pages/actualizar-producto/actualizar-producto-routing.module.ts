@@ -5,7 +5,7 @@ import { ActualizarProductoPage } from './actualizar-producto.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':producto',
     component: ActualizarProductoPage
   }
 ];

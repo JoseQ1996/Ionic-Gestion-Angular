@@ -1,6 +1,6 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Detalle, Producto } from '../entidades';
@@ -45,6 +45,19 @@ export class ProductoService {
       this.detalles=JSON.parse(storeList)
     }
     return this.detalles
+  }
+  productofindById(userId: number, serviceId: number) {
+    return this.listarProductos(userId)
+      .pipe(
+        map(res => {
+          console.log(res);
+          return res.find(s => s.id == serviceId)
+        })
+      );
+  }
+  actualizarProducto(producto:Producto) {
+    let finalUrl = this.endpoint + 'update'
+    return this.httpClient.post<Producto>(finalUrl, producto, this.httpsOptions)
   }
   
 }

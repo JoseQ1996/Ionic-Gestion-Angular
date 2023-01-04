@@ -19,7 +19,7 @@
   </ion-card-header>
 
   <ion-card-content>
-    <ion-button color="warning">
+    <ion-button color="warning" [routerLink]="['/web/actualizar-producto', p.id]">
       <ion-icon name="create-outline"></ion-icon>
     </ion-button>
     <ion-button color="danger" (click)="eliminarProducto(p.id)">
