@@ -4,7 +4,11 @@
       <ion-back-button text="" defaultHref="/web/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Clientes</ion-title>
-
+    <ion-buttons slot="end">
+      <ion-button  [routerLink]="['/web/carrito']">
+        <ion-icon color="primary" slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +23,7 @@
           <ion-button color="primary" (click)="getCliente(c)">
             <ion-icon name="eye-outline"></ion-icon>
           </ion-button>
-          <ion-button color="warning" [routerLink]="['/web/actualizar-cliente', c.identificacionNumero]">
+          <ion-button color="primary" [routerLink]="['/web/actualizar-cliente', c.identificacionNumero]">
             <ion-icon name="create-outline"></ion-icon>
           </ion-button>
           <ion-button color="danger" (click)="eliminarCliente(c.id)">
@@ -28,7 +32,7 @@
         </ion-item>
       </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button color="success" routerLink="/web/register-client">
+    <ion-fab-button color="primary" routerLink="/web/register-client">
       <ion-icon name="person-add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

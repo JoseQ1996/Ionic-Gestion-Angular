@@ -43,7 +43,7 @@
     <p><b>Total: </b>{{f.total}}</p>
     <p><b>Estado: </b>{{f.estadoFactura}}</p>
     <div class="p-r">
-      <ion-button color="primary" (click)="mostrarDetalles(f)">
+      <ion-button color="primary" (click)="presentModal(f)">
         <ion-icon name="eye-outline"></ion-icon>
       </ion-button>
     <ion-button color="danger" *ngIf="f.estadoFactura === 'EMITIDA'"(click)="anularFactura(f.id)">

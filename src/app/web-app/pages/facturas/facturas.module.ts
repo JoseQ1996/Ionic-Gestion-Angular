@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FacturasPageRoutingModule } from './facturas-routing.module';
 
 import { FacturasPage } from './facturas.page';
+import { VerFacturaComponent } from 'src/app/components/ver-factura/ver-factura.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { FacturasPage } from './facturas.page';
     IonicModule,
     FacturasPageRoutingModule
   ],
-  declarations: [FacturasPage]
+  declarations: [FacturasPage,VerFacturaComponent]
 })
 export class FacturasPageModule {}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { ProductoService } from 'src/app/api/producto.service';
 import { Detalle } from 'src/app/entidades';
 import Swal from 'sweetalert2';
@@ -10,7 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class CarritoPage implements OnInit {
   detalles: Detalle[] = []
-  constructor(private productoService: ProductoService) { }
+  constructor(private productoService: ProductoService,
+    private alertController: AlertController) { }
 
   ngOnInit() {
     this.detalles = this.productoService.listarCarrito();
@@ -44,10 +46,66 @@ export class CarritoPage implements OnInit {
           'success'
         )
       }
-      
+
     });
   }
+  async modificarCarrito(id: number) {
+    const found = this.detalles.findIndex((d: any) => d.servicioId === id)
+        this.detalles.splice(found, 1)
+        console.log(found, this.detalles)
+    const alert = await this.alertController.create({
+      
+      header: 'Agregar a Carrito',
+      subHeader: 'Modificar Producto',
 
+      inputs: [
+
+        {
+          name: 'precio',
+          type: 'number',
+          placeholder: 'precio',
+          value: 'precio',
+
+        },
+        {
+          name: 'cantidad',
+          type: 'number',
+          placeholder: 'cantidad',
+          min: 1,
+          max: 100,
+        },
+      ],
+      buttons: [
+        {
+          text: 'Agregar',
+
+          // handler: data => {
+          //   const total = data.precio * data.cantidad
+          //   const id = producto.id
+          //   console.log(data.precio, data.cantidad, total, id);
+          //   const detalle: Detalle = {
+          //     cantidad: data.cantidad,
+          //     precioUnitario: data.precio,
+          //     total: total,
+          //     servicioId: id,
+
+          //   }
+          //   this.productoService.addCarrito(detalle);
+          // }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancelar',
+          handler: data => {
+            console.log('Cancelado');
+          }
+        },
+      ],
+    });
+
+    await alert.present();
   }
+
+}
 
 

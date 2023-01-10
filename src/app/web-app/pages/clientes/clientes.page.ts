@@ -25,7 +25,7 @@ export class ClientesPage implements OnInit {
       text: `Estas a punto de eliminar el cliente`,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#3371c1',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Aceptar',
       cancelButtonText: 'Cancelar'
@@ -70,6 +70,7 @@ export class ClientesPage implements OnInit {
       imageWidth: 100,
       imageHeight: 100,
       heightAuto: false,
+      confirmButtonColor:'#3371c1',
       imageAlt: 'Custom image',
     });
   }

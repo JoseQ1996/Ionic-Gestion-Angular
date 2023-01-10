@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons (click)="closeModal()" slot="start">
+      <ion-button slot="icon">
+        <ion-icon class="icon" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title-ios ion-text-capitalize">Ver Factura</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id="PrintInvoice" class="invoice-box"
+    style="max-width: 800px;margin: auto;padding: 10px;border: 1px solid #eee;box-shadow: 0 0 10px rgba(0, 0, 0, .15);font-size: 14px;line-height: 24px;font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;color: #555;">
+    <table cellpadding="0" cellspacing="0" style="width: 100%;line-height: inherit;text-align: left;">
+      <tr class="top">
+        <td colspan="2" style="padding: 5px;vertical-align: top;">
+          <table style="width: 100%;line-height: inherit;text-align: left;">
+            <tr>
+            
+              <td style="padding: 0px ;vertical-align: top;text-align_: right;">
+                <b>Factura: </b> {{factura?.id}}<br>
+                <b>Fecha:</b> {{factura?.fechaDeEmision}}<br>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr class="information">
+        <td colspan="2" style="vertical-align: top;">
+          <table style="width: 100%;line-height: inherit;">
+            <tr>
+              <td style="padding: 10px;vertical-align: top;text-align: left;">
+                <b>Nombre Cliente:</b><br>
+                {{factura?.cliente?.nombre}}<br>
+                <b>Identificacion:</b><br>
+                {{factura?.cliente?.identificacionNumero}}<br>
+              </td>
+              <td style="padding:10px;vertical-align: top;text-align: left;">
+                <b>Direccion:</b><br>
+                {{factura?.cliente?.direccion}}
+                <b>Telefono:</b><br>
+                {{factura?.cliente?.telefono}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr class="heading">
+        <td style="text-align:left;background:#eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+          Servicio
+        </td>
+        <td
+          style="background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;padding-right: 40px">
+          Cantidad
+        </td>
+        <td
+          style="background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;padding-right: 40px;">
+          Precio
+        </td>
+      </tr>
+
+      <tr *ngFor="let detalles of factura?.detalles" class="item">
+        <td style="vertical-align: top;text-align: left;border-bottom: 1px solid #eee;">
+          {{detalles.servicio.descripcion}}
+        </td>
+        <td style="vertical-align: top;text-align: left;border-bottom: 1px solid #eee;">
+          {{detalles.cantidad}}
+        </td>
+        <td style="vertical-align: top;text-align: left;border-bottom: 1px solid #eee;padding-right: 40px;">
+          ${{detalles.total| number : '1.2-2'}}
+        </td>
+      </tr>
+    
+      <tr class="total">
+        <td style="padding: 5px;vertical-align: top;"></td>
+
+        <td style="padding: 5px;vertical-align: top;text-align: right;border-top: 2px solid #eee;font-weight: bold;">
+          Subotal: ${{factura?.subtotal}}<br>
+          IVA: ${{factura?.impuesto}}<br>
+          Total: ${{factura?.total}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="primary" (click)="descargarFactura()">
+      <ion-icon name="save-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+  

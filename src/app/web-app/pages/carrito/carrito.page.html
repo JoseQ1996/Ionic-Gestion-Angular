@@ -19,21 +19,29 @@
         <ion-col>Precio Unitario</ion-col>
         <ion-col>Total</ion-col>
         <ion-col>Accion</ion-col>
+        <ion-col>Accion</ion-col>
 
       </ion-row>
       <ion-row *ngFor="let d of detalles">
         <ion-col>{{d.servicioId}}</ion-col>
         <ion-col>{{d.cantidad}}</ion-col>
         <ion-col>{{d.precioUnitario}}</ion-col>
-        <ion-col>{{d.total}}</ion-col>
-        <ion-button color="danger" (click)="eliminar(d.servicioId!)">
+        <ion-col>{{d.total}}</ion-col> 
+        <ion-col>
+          <ion-button  color="primary" (click)="modificarCarrito(d.servicioId!)">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-col>    
+        <ion-col>
+        <ion-button  color="danger" (click)="eliminar(d.servicioId!)">
           <ion-icon name="trash"></ion-icon>
-        </ion-button>
+        </ion-button>       
+      </ion-col>  
       </ion-row>
     </ion-grid>
   </div>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button color="success" routerLink="/web/generar-factura">
+    <ion-fab-button color="primary" routerLink="/web/generar-factura">
       <ion-icon name="receipt-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

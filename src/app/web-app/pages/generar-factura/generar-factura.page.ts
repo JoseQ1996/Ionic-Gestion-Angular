@@ -87,9 +87,9 @@ export class GenerarFacturaPage implements OnInit {
   
   async mostrarMensaje(mensaje:any){
     const toast=await this.toastController.create({
-      position:'top',
+      position:'bottom',
       message: mensaje,
-      duration:3000
+      duration:1000
     })
     toast.present()
   }

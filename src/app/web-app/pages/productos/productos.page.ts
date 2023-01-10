@@ -30,7 +30,7 @@ export class ProductosPage implements OnInit {
       text: `Estas a punto de eliminar el Producto`,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#3371c1',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Aceptar',
       cancelButtonText: 'Cancelar'

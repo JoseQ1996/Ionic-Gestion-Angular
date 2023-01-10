@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { FacturaService } from 'src/app/api/factura.service';
 import { UserService } from 'src/app/api/user.service';
-import { Factura, FacturaDetalle } from 'src/app/entidades';
+import { VerFacturaComponent } from 'src/app/components/ver-factura/ver-factura.component';
+import {  FacturaDetalle } from 'src/app/entidades';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-facturas',
@@ -13,7 +15,8 @@ export class FacturasPage implements OnInit {
   facturas: Observable<FacturaDetalle[]> | undefined;
   user: any;
   constructor(private facturaService: FacturaService,
-    private userService: UserService) { this.user = this.userService.obtenerSesion().body }
+    private userService: UserService,
+    private modalCtrl: ModalController ) { this.user = this.userService.obtenerSesion().body }
 
   ngOnInit() {
     const id = this.user.id
@@ -27,7 +30,7 @@ export class FacturasPage implements OnInit {
       text: `Desea Anular la Factura`,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#3371c1',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Aceptar',
       cancelButtonText: 'Cancelar'
@@ -102,5 +105,14 @@ export class FacturasPage implements OnInit {
     })
 
 
+  }
+  async presentModal(f:FacturaDetalle) {
+    const modal = await this.modalCtrl.create({
+      component: VerFacturaComponent,
+      componentProps: {
+        'Factura':f
+      }
+    });
+    return await modal.present();
   }
 }
