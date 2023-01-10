@@ -18,7 +18,7 @@ export class VerFacturaComponent implements OnInit {
   closeModal() {
     this.modalContrller.dismiss();
   }
-  descargarFactura(){}
+  
 
   ngOnInit() {}
 
