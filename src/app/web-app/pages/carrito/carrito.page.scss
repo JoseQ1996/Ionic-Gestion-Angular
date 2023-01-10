@@ -3,7 +3,6 @@ ion-grid {
     border-collapse: collapse;
     border-style: initial;
     font-size: 10px;
-    width: 290px;
     font-weight: bold;
 
     .reports-table {
@@ -26,7 +25,7 @@ ion-grid {
         border-bottom: 0;
         border-right: 0;
         text-align: center;
-        width: 280px;
+       
        
         
     }
@@ -34,14 +33,14 @@ ion-grid {
     ion-col:last-child {
         border-right: 1px solid black;
         text-align: center;
-        width: 280px;
+        
         
     }
 
     ion-row:last-child {
         border-bottom: 1px solid black;
         text-align: center;
-        width: 280px;
+        
         
     }
     ion-button{

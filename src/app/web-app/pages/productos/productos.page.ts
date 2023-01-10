@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ProductoService } from 'src/app/api/producto.service';
 import { UserService } from 'src/app/api/user.service';
@@ -14,13 +15,17 @@ import Swal from 'sweetalert2';
 export class ProductosPage implements OnInit {
   productos:Observable<Producto[]> | undefined ;
   user:any;
+  detalles: Detalle[] = []
   constructor(private productoService:ProductoService,
               private userService:UserService,
-              private alertController: AlertController) {this.user=this.userService.obtenerSesion().body }
+              private alertController: AlertController,
+              private router:Router,
+              private toastController:ToastController) {this.user=this.userService.obtenerSesion().body }
 
   ngOnInit() {
     const id=this.user.id
     this.productos=this.productoService.listarProductos(id);
+    this.detalles = this.productoService.listarCarrito();
   }
   eliminarProducto(id:any){
     console.log("entrando")
@@ -89,15 +94,33 @@ export class ProductosPage implements OnInit {
         handler: data => {
           const total=data.precio*data.cantidad
           const id=producto.id
+          const found = this.detalles.findIndex((d: any) => d.servicioId === id)
+          if(found != -1){
+            console.log(this.detalles[found])
+            Swal.fire({
+              title: 'El producto ya esta Agregado',
+              text:'Si desea modificar la cantidad vaya al carrito',
+              heightAuto: false,
+              confirmButtonColor:'#3371c1',
+              cancelButtonColor: '#d33',
+              showCancelButton: true,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.router.navigate([ '/web/carrito'])
+              }
+            })
+          }else{
           console.log(data.precio,data.cantidad,total,id);
           const detalle:Detalle={
             cantidad:data.cantidad,
             precioUnitario:data.precio,
             total:total,
             servicioId:id,
-
+              
           }
           this.productoService.addCarrito(detalle);
+          this.mostrarMensaje("El Producto fue agregado")
+        }
         }
       },
       {
@@ -112,6 +135,15 @@ export class ProductosPage implements OnInit {
 
     await alert.present();
   }
+  async mostrarMensaje(mensaje:any){
+    const toast=await this.toastController.create({
+      position:'bottom',
+      message: mensaje,
+      duration:1000
+    })
+    toast.present()
+  }
+  
 }
     
 

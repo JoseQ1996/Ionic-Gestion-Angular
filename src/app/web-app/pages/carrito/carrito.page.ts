@@ -51,8 +51,8 @@ export class CarritoPage implements OnInit {
   }
   async modificarCarrito(id: number) {
     const found = this.detalles.findIndex((d: any) => d.servicioId === id)
-        this.detalles.splice(found, 1)
-        console.log(found, this.detalles)
+    this.detalles[found].cantidad;
+    
     const alert = await this.alertController.create({
       
       header: 'Agregar a Carrito',
@@ -63,35 +63,32 @@ export class CarritoPage implements OnInit {
         {
           name: 'precio',
           type: 'number',
-          placeholder: 'precio',
-          value: 'precio',
+          placeholder: this.detalles[found].precioUnitario.toString(),
+          value: this.detalles[found].precioUnitario,
 
         },
         {
           name: 'cantidad',
           type: 'number',
-          placeholder: 'cantidad',
+          placeholder: this.detalles[found].cantidad.toString(),
           min: 1,
           max: 100,
         },
       ],
       buttons: [
         {
-          text: 'Agregar',
-
-          // handler: data => {
-          //   const total = data.precio * data.cantidad
-          //   const id = producto.id
-          //   console.log(data.precio, data.cantidad, total, id);
-          //   const detalle: Detalle = {
-          //     cantidad: data.cantidad,
-          //     precioUnitario: data.precio,
-          //     total: total,
-          //     servicioId: id,
-
-          //   }
-          //   this.productoService.addCarrito(detalle);
-          // }
+          text: 'Modificar',
+          handler: data => {
+            const cant=data.cantidad
+            const precio=data.precio
+            const total=data.cantidad*data.precio
+            this.detalles[found].precioUnitario=precio
+            this.detalles[found].cantidad=cant
+            this.detalles[found].total=total
+            console.log(this.detalles[found]);
+            localStorage.removeItem('detalles')
+            localStorage.setItem('detalles', JSON.stringify(this.detalles))
+          }
         },
         {
           text: 'Cancelar',
